@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>trianglefactory</title>
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
+  <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
+  <meta name="viewport" content="width=device-width">
+  
+  
+  <link rel="stylesheet" href="../static/css/factory_style.css">
+  <link rel="stylesheet" href="../static/css/style_tour.css">
+
+  
+</head>
+
+<body>
+    <!-- STEPS -->
+  <section id="Steps" class="steps-section">
+<div class="page-header" style="padding: 20px; background:black; color:white">
+    <h1 id="timeline" style="color: white">Triangle Shirtwaist Factory</h1>
+  
+        <p style="font-size: 10">It was March 25th, 1911 when the Triangle Shirtwaist Factory that you're standing by was engulfed by a massive inferno. The workers within the factory, mostly comprised of 123 women that were Italian and Jewish immigrants, faced the unthinkable choice of falling to their deaths or being burned alive. As a consequence of this industrial disaster, many reforms mandating better building access, exits, alarm systems, and a plethora of new reforms improving work conditions were introduced into the state of New York. </p>
+        
+  </div>
+     
+
+    <div class="steps-timeline">
+
+      <div class="steps-one">
+        <img class="steps-img" src="https://timeopinions.files.wordpress.com/2013/05/trianglefactory.jpg" alt="" />
+        <h3 class="steps-name">
+          1911
+        </h3>
+        <p class="steps-description">
+          Burn Down
+        </p>
+      </div>
+
+      <div class="steps-two">
+        <img class="steps-img" src="https://i2.wp.com/fuzzylizzie.com/myPictures/NYC/triangle/151.JPG" alt="" />
+        <h3 class="steps-name">
+          2003
+        </h3>
+        <p class="steps-description">
+           Rebuild
+        </p>
+      </div>
+
+      <div class="steps-three">
+        <img class="steps-img" src="../static/image/Shirtwaist_factory.jpg" alt="" />
+        <h3 class="steps-name">
+          2017
+        </h3>
+        <p class="steps-description">
+          Current View
+        </p>
+      </div>
+
+    </div><!-- /.steps-timeline -->
+
+  </section>
+
+
+<div class="container">
+ <div class="row">
+   <div class="col-md-6" id = "myForm">
+   <br><br>
+     <form>
+       <textarea id = "textarea_text" style = "width: 300px;" rows="10">
+         
+       </textarea><br><br>
+       <button class="btn-success" onclick="standby_click()">StandBy</button>
+
+       <a style="background: blue; color: white; padding: 10px" href="https://twitter.com/share" target="_blank" class="twitter-share-button" data-text="At Triangle Shirtwaist Factory #TweetByImmigrant" data-show-count="false">TweetBy</a><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+     </form>
+   </div>
+   <div class="col-md-6">
+       <ul class="timeline" id="timeline_mesg">
+    <li>
+      <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading"> 
+          <p><small class="text-muted">Salomon</small></p>
+        </div>
+        <div class="timeline-body">
+          <p>This is truly a tragic story. Italian and Jewish women had to sacrifices their lives so that reforms could be introduced to improve the overall quality of people in the workplace.</p>
+        </div>
+      </div>
+    </li>
+    <li class="timeline-inverted">
+      <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading"> 
+          <p><small class="text-muted">Bela</small></p>
+        </div>
+        <div class="timeline-body">
+          <p>One could only imagine the horrific scenery. This reminds me of the what just happened in London..terrible...</p> 
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading"> 
+          <p><small class="text-muted">Hani</small></p>
+        </div>
+        <div class="timeline-body">
+          <p>What an interesting part of NYC history and an important one at that. Their lives were not lost in vain. I truly am glad I stumbled upon this because I now know more about a problem that immigrants such as myself have faced many years back. </p>
+        </div>
+      </div>
+    </li> 
+      </ul>
+   </div> 
+  </div>
+</div>
+ 
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+<script type="text/javascript">
+
+window.addEventListener('load', 
+  function() { 
+   
+ 
+    var form = new FormData();
+form.append("Latitude", "40.7299577");
+form.append("Longitude", "-73.995297");
+form.append("Messege", "You are in Triangle Shirtwaist Factory");
+form.append("Auther", "IStand");
+
+var settings = {
+ "async": true,
+ "crossDomain": true,
+ "url": "http://1d65898f.ngrok.io/",
+ "method": "POST",
+ "headers": {
+   "cache-control": "no-cache",
+   "postman-token": "54b566bf-77ea-59f1-7ab7-8c24fee92844"
+ },
+ "processData": false,
+ "contentType": false,
+ "mimeType": "multipart/form-data",
+ "data": form
+}
+
+$.ajax(settings).done(function (response) {
+ console.log(response);
+}); 
+ 
+  }, false);
+
+function standby_click(){
+
+  event.preventDefault();
+
+  var body_t = document.getElementById('textarea_text').value; 
+
+  var form = new FormData();
+form.append("Latitude", "40.7299577");
+form.append("Longitude", "-73.995297");
+form.append("Messege", body_t);
+form.append("Auther", "Tommy");
+
+var settings = {
+ "async": true,
+ "crossDomain": true,
+ "url": "http://1d65898f.ngrok.io/",
+ "method": "POST",
+ "headers": {
+   "cache-control": "no-cache",
+   "postman-token": "54b566bf-77ea-59f1-7ab7-8c24fee92844"
+ },
+ "processData": false,
+ "contentType": false,
+ "mimeType": "multipart/form-data",
+ "data": form
+}
+
+$.ajax(settings).done(function (response) {
+ console.log(response);
+});
+
+  
+  var temp = `<li class="timeline-inverted">
+      <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading"> 
+          <p><small class="text-muted">Tommy</small></p>
+        </div>
+        <div class="timeline-body">
+          <p>[textbox]</p> 
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading"> 
+          <p><small class="text-muted">Salomon</small></p>
+        </div>
+        <div class="timeline-body">
+          <p>This is truly a tragic story. Italian and Jewish women had to sacrifices their lives so that reforms could be introduced to improve the overall quality of people in the workplace.</p>
+        </div>
+      </div>
+    </li>
+    <li class="timeline-inverted">
+      <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading"> 
+          <p><small class="text-muted">Bela</small></p>
+        </div>
+        <div class="timeline-body">
+          <p>One could only imagine the horrific scenery. This reminds me of the what just happened in London..terrible...</p> 
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading"> 
+          <p><small class="text-muted">Hani</small></p>
+        </div>
+        <div class="timeline-body">
+          <p>What an interesting part of NYC history and an important one at that. Their lives were not lost in vain. I truly am glad I stumbled upon this because I now know more about a problem that immigrants such as myself have faced many years back.</p>
+        </div>
+      </div>
+    </li> 
+    `;
+
+    temp = temp.replace("[textbox]", body_t)
+ 
+    document.getElementById('timeline_mesg').innerHTML = temp; 
+    document.getElementById("myForm").innerHTML = `<br><br><br><br><canvas id="myChart" ></canvas>`;
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+
+        labels: ["StandBy", "TweetBy"],
+        datasets: [{  
+            label: '# of StandBy', 
+            data: [12, 19],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+    // var data = {
+    //     datasets: [{
+    //         data: [10, 20, 30]
+    //     }], 
+    //     // These labels appear in the legend and in the tooltips when hovering different arcs
+    //     labels: [
+    //         'Red',
+    //         'Yellow',
+    //         'Blue'
+    //     ],
+    //     fillColor : [
+    //         'rgba(255, 99, 132, 0.2)',
+    //         'rgba(54, 162, 235, 0.2)',
+    //         'rgba(255, 206, 86, 0.2)'
+    //     ]
+    // };
+    // var options = {
+
+    // };
+    // var ctx = document.getElementById("myChart").getContext('2d');
+    // var myPieChart = new Chart(ctx,{
+    //     type: 'pie',
+    //     data: data,
+    //     options: options
+    // });
+     
+}
+  
+
+</script>
+  
+</body>
+</html>

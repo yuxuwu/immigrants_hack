@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div id="map" style="width: 500px; height: 400px;"></div>
+        <script src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyAfIBt2O_Rb970n4vvKo5UZgdOfC8qvO-E" 
+                type="text/javascript"></script>
+        <script>
+            var locations = [
+            //['Ellis Island', 40.6986857, -74.0450826, 4],
+            //['Lin Zexu Statue', 40.7136672, -74.0001816, 7],
+            //['Little Poland', 40.7311728, -73.9877419, 9],
+            //['Museum Of Chinese In America', 40.7192003, -73.9996783, 2],
+            ['Italian American Museum', 40.719217, -73.997498, 0],
+            //['Little Russia',40.5789796,-73.9697565,6],
+            //['Greek Museum',40.6304328,-73.6501429,2],
+            ['Triangle Shirtwaist Factory',40.7299577,-73.9952976,1],
+            //['The Brill Building',40.7611522,-73.986845,8],
+            ['The FIrst Katz Deli',40.722233, -73.987429,3],
+            //['Carnegie Hall',40.7651258,-73.9799236,10]
+            ];
+
+        var defaultLocation ={};
+        defaultLocation.lat = locations[1][1];
+        defaultLocation.lon = locations[1][2];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: new google.maps.LatLng(defaultLocation.lat, defaultLocation.lon),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+        );
+
+        map.setOptions({
+            styles:[{
+                featureType:'poi',
+                stylers : [
+                    {visibility: "off"}
+                ]
+        }]});
+
+        map.setZoom(14);
+            
+        var infowindow = new google.maps.InfoWindow();
+        var marker, i;
+        for (i = 0; i < locations.length; i++) {  
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                label :locations[i][0],
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+                }
+            })(marker, i));
+            }
+        </script>
+    </body>
+</html>
