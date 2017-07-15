@@ -2,6 +2,17 @@ body{
     background-color: #FFD1B7;
 }
 
+.dropdown-menu{
+    left: 50%;
+    right: auto;
+    text-align: center;
+    transform: translate(-50%, 0);
+}
+
+.dropdown {
+    text-align: center;
+}
+
 button {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -15,9 +26,14 @@ button {
     display: block;
 }
 
-.header {
-    background-color: #FF5E00;
-    color: white;
+.logo {
+   font-size: 2em;
+   font-weight: 600;
+   text-align: center; 
+   color: #7ECC9F;
+   position: relative;
+   top: 40px;
+   font-family: "Gloria Hallelujah", cursive;
 }
 
 .text-box {

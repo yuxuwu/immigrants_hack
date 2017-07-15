@@ -1,8 +1,17 @@
-function from0to1(){
-    document.getElementById("text-box").innerHTML = "<h1>Testing</h1>";
+function from0to1en(){
+    $("#text-box").animate({
+        opacity: 0
+    }, 500,
+    function() {
+        $(this).animate({
+            opacity: 1
+        }, 500);
+        $("#text-box").load("search_location.html");   
+    });
+
 }
 
 
 $(document).ready(function () {
-    $("#button0").on("click", from0to1);
+    $("#english_bu").on("click", from0to1en);
 });
