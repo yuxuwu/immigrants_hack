@@ -6,7 +6,7 @@ function from0to1en(){
         $(this).animate({
             opacity: 1
         }, 500);
-        $("#text-box").load("search_location.html");   
+        $("#text-box").load("html/search_location.html");   
     });
 
 }
